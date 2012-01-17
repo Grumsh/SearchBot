@@ -7,5 +7,5 @@ file = urllib2.urlopen('http://www.google.com')
 raw = file.read()
 
 from BeautifulSoup import BeautifulSoup
-b = BeautifulSoup()
-b.prettefy(raw)
+b = BeautifulSoup(raw)
+print b.prettify()
