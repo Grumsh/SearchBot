@@ -1,11 +1,22 @@
 #We want to developpe a scrapper app.
-#It should start with a getting the content of a given url. 
-# Nothing agains using a few helper libraries.
-import urllib2
 
-file = urllib2.urlopen('http://www.google.com')
+url = 'http://www.hackernews.com'
+#It should start with a getting the content of a given url. 
+import urllib2
+file = urllib2.urlopen(url)
 raw = file.read()
 
+print ('downloaded file from url '+url+' content was '+str(len(raw))+' bytes')
+
+#Multiple ways to extract the links
+#either using beautiful soup.
 from BeautifulSoup import BeautifulSoup
 b = BeautifulSoup(raw)
-print b.prettify()
+
+#or using lxml. 
+from lxml import etree
+import StringIO
+parser = etree.HTMLParser()
+tree   = etree.parse(StringIO.StringIO(raw), parser)
+links = tree.xpath('//a')
+print ('found '+str(len(links))+' links in the file')

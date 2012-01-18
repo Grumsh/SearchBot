@@ -9,3 +9,7 @@ Commandes
     python virtualenv.py repertoire
 ### pour configurer la ligne de commande pour utiliser la copie de python
     source <repertoire>\bin\activate
+
+Pour plus tard
+=============
+virtualenvwrapper
